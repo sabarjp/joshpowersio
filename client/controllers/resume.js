@@ -1,6 +1,4 @@
-Template.resume.onRendered(function(){
-    console.log('render');
-
+Template.resume.rendered = function(){
     function getValueOrDefault(item, defaultValue){
         if(item === undefined || item === null){
             return defaultValue;
@@ -276,4 +274,4 @@ Template.resume.onRendered(function(){
         var err = textStatus + ", " + error;
         console.log( "Request Failed: " + err );
     });
-});
+};

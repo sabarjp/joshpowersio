@@ -122,6 +122,6 @@ Template.brownianMotion.events({
     }
 });
 
-Template.brownianMotion.onRendered(function(){
+Template.brownianMotion.rendered = function(){
     bMotion.initialize();
-});
+};

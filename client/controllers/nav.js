@@ -6,6 +6,6 @@ Template.nav.events({
     }
 });
 
-Template.nav.onRendered(function(){
+Template.nav.rendered = function(){
     $('.popup').popup();
-});
+};
