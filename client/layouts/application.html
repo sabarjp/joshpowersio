@@ -1,0 +1,24 @@
+<template name="applicationLayout">
+    <head>
+        <title>Josh Powers</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body class="pushable" ontouchstart="">
+        {{> sidebar}}
+        {{> nav}}
+        {{> spinner}}
+    
+        <div class="pusher">
+            <div class="header"></div>
+
+            <div class="main container">
+                {{> yield }}
+            </div>
+
+            <footer>
+                {{> yield "footer"}}
+            </footer>
+        </div>
+    </body>
+</template>

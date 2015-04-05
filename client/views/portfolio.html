@@ -1,0 +1,913 @@
+<template name="portfolio">
+    <h1>Portfolio</h1>
+    <p>This is but a small selection of my programming work. Check out my <a href="https://github.com/sabarjp">GitHub page</a> for far more code in more languages!</p>
+
+    <section id="table-of-contents">
+        <ul>
+            <li><a href="#ex-1">C# - ASP.NET - MVC - LINQ - EF</a></li>
+            <li><a href="#ex-2">C# - ASP.NET - Threading</a></li>
+            <li><a href="#ex-3">JavaScrit - React.js</a></li>
+            <li><a href="#ex-4">T-SQL - Complex query</a></li>
+        </ul>
+    </section>
+
+    <section id="ex-1">
+        <h2 class="portfolio_section_title">LINQ</h2>
+
+        <article>
+            <h3>
+                Entity Framework / ORM
+            </h3>
+            <p class="portfolio_article_description">
+                
+            </p>
+
+<pre class="ui segment">C# / ASP.NET MVC
+LINQ Example
+<code class="csharp lang-sharp">
+/* ... */
+
+using (var dbe = new StatisticsEntities())
+{
+    var NuggetsByLocationAndBenchmark =
+        dbe.BenchmarkFiles
+            .Where(bf =&gt; mf.Active.Value &amp;&amp;
+                         mf.BenchmarkInfo.ProductID == ProductId)
+            .GroupBy(bf =&gt; new
+            {
+                mf.BenchmarkID,
+                mf.PK
+            })
+            .Select(grp =&gt; new
+            {
+                Location = grp.Key.PK,
+                BenchmarkId = grp.Key.BenchmarkID,
+                NuggetCount = (grp
+                    .OrderByDescending(x =&gt; x.Period)
+                    .Select(x =&gt; x.AlarmLevelID)
+                    .FirstOrDefault() &gt; (int)EAlarmLevel.None ? 1 : 0)
+            })
+            .Where(grp =&gt; grp.NuggetCount &gt; 0)
+            .Join(dbe.BenchmarkInfoes,
+                left =&gt; left.BenchmarkId,
+                right =&gt; right.BenchmarkID,
+                (left, right) =&gt; new
+                {
+                    left.Location,
+                    left.BenchmarkId,
+                    BenchmarkName = right.Name,
+                    left.NuggetCount,
+                })
+            .GroupBy(grp =&gt; new
+            {
+                grp.Location
+            })
+            .Select(grp2 =&gt; new
+            {
+                grp2.Key.Location,
+                NuggetCount = grp2.Sum(x =&gt; x.NuggetCount),
+                BenchmarkList = grp2
+                    .Select(x =&gt; x.BenchmarkName)
+                    .ToList()
+            })
+            .ToList();
+
+    /* ... */
+
+    return new JsonNetResult
+    {
+        Data = new
+        {
+            NuggetsByLocationAndBenchmark
+        },
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+    };
+}
+
+/* ... */
+</code></pre>
+        </article>
+    </section>
+
+    <section id="ex-2">
+        <h2 class="portfolio_section_title">Threading</h2>
+
+        <article>
+            <h3>
+                Web Server (long running process)
+            </h3>
+            <p class="portfolio_article_description">
+                When a user performs an action that is long running,
+                one UI/UX solution is to start the long process as a
+                thread and immediately return a thread ID to the user.
+                Periodic AJAX calls can check the status of the task
+                and even update a progress bar, as in this example.
+            </p>
+            <p class="portfolio_article_description">
+                Having multiple running threads directly on the web
+                server for this kind of task is not ideal. An 
+                improvement would be to offload the task to a worker
+                server.
+            </p>
+
+<pre class="ui segment">C# / ASP.NET MVC
+Web Server Threading from AJAX Example
+<code class="csharp lang-csharp">
+//
+// POST: /Admin/BitmapDraw
+[HttpPost]
+[NoCache]
+public ActionResult BitmapDraw(BitmapDrawCriteria criteria)
+{
+    var model = new AdminBitmapDrawVM();
+
+    /* ... */
+
+    return View(model);
+}
+
+//
+// AJAX POST: /Admin/BitmapDrawAjax
+[HttpPost]
+[NoCache]
+public ActionResult BitmapDrawAjax(BitmapDrawCriteria criteria)
+{
+    var xreq = Request.Headers["X-Requested-With"];
+    var contentType = (xreq == "XMLHttpRequest" 
+                            ? "application/json"
+                            : "text/html");
+
+    #region Validation and Authorization
+    /* ... */
+    #endregion
+
+    #region Set up
+    /* ... */
+    #endregion
+
+    #region Data import
+    var errorMessages = new List&lt;string&gt;();
+
+    // Import user-supplied data if file(s) supplied
+    if (selectedMeasurementInfo != null &amp;&amp;
+        criteria.UploadFile.Count &gt; 0))
+    {
+        for (var i = 0; i &lt; criteria.UploadFile.Count(); i++)
+        {
+            if (criteria.UploadFile[i] == null) continue;
+
+            var valid = UploadProcessor.ImportData(
+                criteria.UploadProcedureId[i],
+                criteria.UploadFile[i],
+                errorMessages
+            );
+
+            // Abort now if the supplied data is bad
+            if (!valid)
+            {
+                foreach (var e in errorMessages)
+                {
+                    ModelState.AddModelError("UploadFile[" + i +"]", e);
+                }
+
+                return new JsonNetResult
+                {
+                    Data = new
+                    {
+                        success = false,
+                        messages = ModelState
+                            .Where(x =&gt; x.Value.Errors.Count &gt; 0)
+                            .Select(x =&gt; new { x.Key, x.Value})
+                            .ToList()
+                    },
+                    JsonRequestBehavior = JsonRequestBehavior.DenyGet,
+                    ContentType = contentType
+                };
+            }
+        }
+    }
+    #endregion
+
+    #region Task run
+    // Prepare the task
+    var taskId = Guid.NewGuid().ToString();
+    var userName = MvcApplication.CurrentUserName;
+    string appEventDetail;
+
+    // Clean up old tasks
+    /* ... */
+
+    // Run task
+    if (selectedMeasurementInfo != null)
+    {
+        // Log this event before we run
+        appEventDetail = 
+            String.Format("Attempt BitmapDraw for " +
+                          "Measurement: {0} | PK: {1} | Period: {2}",
+                selectedMeasurementInfo.Name, 
+                criteria.SelectedLocation,
+                criteria.SelectedPeriod.Value.ToShortDateString());
+
+        MvcApplication.LogAudit(AuditEventType.UserAction,
+            PipelineEvents.BitmapDrawFile, 
+            appEventDetail,
+            criteria.SelectedMeasurementID.Value.ToString());
+
+        UploadProcessor.Progress[taskId] = 0;
+        UploadProcessor.TimeAccessed[taskId] = DateTime.Now;
+
+        // Start a new task to render these bitmaps
+        Tasks[taskId] = 
+            Task.Factory
+                .StartNew&lt;List&lt;MeasurementFile&gt;&gt;(() =&gt;
+                    UploadProcessor.CreateAutomatedSlides(
+                        /* ... */
+                    );
+    }
+    else if (criteria.MultiSite)
+    {
+        /* ... */
+    }
+    else
+    {
+        /* ... */
+    }
+    #endregion
+
+    return new JsonNetResult
+    {
+        Data = new
+        {
+            success = true, 
+            facilities, 
+            taskId
+        },
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+        ContentType = contentType
+    };
+}
+
+//
+// AJAX POST: /Admin/SaveBitmaps
+[HttpPost]
+[NoCache]
+public JsonNetResult SaveBitmaps(List&lt;BitmapDrawSave&gt; Bitmaps)
+{
+    /* ... */
+}
+
+//
+// AJAX GET: /Admin/GetBitmapDrawStatus
+[NoCache]
+public JsonNetResult GetBitmapDrawStatus(string id)
+{
+    if(UploadProcessor.TimeAccessed.ContainsKey(id)){
+        UploadProcessor.TimeAccessed[id] = DateTime.Now;
+    }
+
+    int progress;
+
+    if (!UploadProcessor.Progress.ContainsKey(id))
+    {
+        progress = -1;
+    }
+    else
+    {
+        progress = Math.Max(5, UploadProcessor.Progress[id]);
+    }
+
+    if (!Tasks.ContainsKey(id))
+    {
+        return new JsonNetResult
+        {
+            Data = new { 
+                exists = false, 
+                finished = false, 
+                errored = false, 
+                progress 
+            },
+            JsonRequestBehavior = JsonRequestBehavior.AllowGet
+        };
+    }
+
+    if (Tasks[id].IsFaulted)
+    {
+        //save error message
+        Exception ex = Tasks[id].Exception;
+        var error = Tasks[id].Exception.Message;
+
+        // remove links to free memory since this task will not be
+        // accessed again
+        RemoveTaskFromMemory(id);
+
+        MvcApplication.RecordPipelineErrorLog(ex,
+            System.Web.HttpContext.Current.Request);
+
+        return new JsonNetResult
+        {
+            Data = new { 
+                exists = true, 
+                finished = true, 
+                errored = true, 
+                progress, 
+                errorMessage = error 
+            },
+            JsonRequestBehavior = JsonRequestBehavior.AllowGet
+        };
+    }
+
+    if (Tasks[id].IsCanceled)
+    {
+        /* ... */
+    }
+
+    if (Tasks[id].IsCompleted)
+    {
+        /* ... */
+    }
+
+    /* ... */
+}
+
+//
+// AJAX GET: /Admin/FinishBitmapDraw
+[NoCache]
+public JsonNetResult FinishBitmapDraw(string id)
+{
+    if (!Tasks.ContainsKey(id))
+    {
+        return new JsonNetResult
+        {
+            Data = new { success = true },
+            JsonRequestBehavior = JsonRequestBehavior.AllowGet
+        };
+    }
+
+    if (!Tasks[id].IsCompleted)
+    {
+        Task.WaitAll(Tasks[id]);
+    }
+
+    var generatedFiles = Tasks[id].Result;
+
+    // free up the reference for this fella
+    RemoveTaskFromMemory(id);
+
+    return new JsonNetResult
+    {
+        Data = new { success = true, MeasurementFiles = generatedFiles },
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+    };
+}
+</code></pre>
+        </article>
+    </section>
+
+    <section id="ex-3">
+        <h2 class="portfolio_section_title">React.js</h2>
+
+        <article>
+            <h3>
+                JSX file for permissions CRUD UI
+            </h3>
+            <p class="portfolio_article_description">
+                This JSX file creates a little interface area
+                for simple additions/deletes of objects to users. I 
+                used it to manage permissions for a very specific
+                part of the website.
+            </p>
+            <p class="portfolio_article_description">
+                Our normal permissions framework was too heavy
+                handed of a solution for this, but this React.js code
+                makes it simple, and more importantly, responsive and
+                smooth.
+            </p>
+
+<pre class="ui segment">JavaScript
+React.js UI Example
+<code class="javascript lang-javascript">
+/** @jsx React.DOM */
+var RestrictionItem = React.createClass({
+    handleDeleteClick: function(){
+        if(this.state.awaitingDeleteConfirmation){
+            var restrictionDOM = this.refs.restrictionId.getDOMNode();
+
+            this.props.removeRestriction(restrictionDOM.value);
+
+            this.setState({awaitingDeleteConfirmation: false});
+        } else {
+            this.setState({awaitingDeleteConfirmation: true});
+        }
+    },
+
+    handleCancelClick: function(){
+        this.setState({awaitingDeleteConfirmation: false});
+    },
+
+    getInitialState: function() {
+        return {awaitingDeleteConfirmation: false};
+    },
+
+    render: function(){
+        var text = this.props.restrictionID == "" ? "" :
+            this.state.awaitingDeleteConfirmation ? "confirm" : "delete";
+        var rowClass = this.state.awaitingDeleteConfirmation ?
+            "dynamic_list_marked_for_deletion" : "";
+
+        var cancelText = this.state.awaitingDeleteConfirmation ? (
+            &lt;span className="link" onClick={this.handleCancelClick}&gt;
+            cancel&lt;/span&gt;
+        ) : "";
+
+
+        return (
+            &lt;div className={rowClass}&gt;
+                &lt;input type="hidden" 
+                    value={this.props.restrictionID}
+                    ref="restrictionId" /&gt;
+                &lt;div className="dynamic_list_item_short"&gt;
+                    {this.props.userName}
+                &lt;/div&gt;
+                &lt;div className="dynamic_list_item_wide"&gt;
+                    {this.props.objectName}
+                &lt;/div&gt;
+                &lt;div className="dynamic_list_item_utility"&gt;
+                    &lt;span className="link dynamic_list_link"
+                        onClick={this.handleDeleteClick}&gt;
+                            {text}&lt;/span&gt; {cancelText}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+var RestrictionList = React.createClass({
+    render: function(){
+        var removeRestrictionHandler = this.props.removeRestriction;
+
+        var listItems = 
+            this.props.restrictions.map(function(restriction){
+              return (
+                &lt;RestrictionItem 
+                    key={restriction.RestrictionId}
+                    removeRestriction={removeRestrictionHandler} 
+                    userName={restriction.UserName}
+                    userID={restriction.UserId} 
+                    objectName={restriction.ObjectName}
+                    restrictionID={restriction.RestrictionId}/&gt;
+              )
+        });
+
+        return (
+            &lt;div className="dynamic_list_items"&gt;
+                {listItems}
+            &lt;/div&gt;
+        );
+    }
+});
+
+var RestrictionAddForm = React.createClass({
+    handleAddButtonClick: function() {
+        this.setState({isAddingItem: !this.state.isAddingItem});
+    },
+
+    handleAddRestrictionSubmit: function(){
+        var adminDom  = this.refs.admins.getDOMNode();
+        var objectDom = this.refs.objects.getDOMNode();
+
+        var adminName = adminDom.options[adminDom.selectedIndex].text;
+        var adminId = adminDom.value;
+
+        var objectName = objectDom.options[objectDom.selectedIndex].text;
+        var objectId = objectDom.value;
+
+        this.props.addRestriction(adminName, 
+            adminId, objectName, objectId);
+
+        if(!adminId || !objectId){
+            return false;
+        }
+
+        this.setState({isAddingItem: false});
+        return false;
+    },
+
+    getInitialState: function() {
+        return {isAddingItem: false};
+    },
+
+    render: function(){
+        if(this.state.isAddingItem){
+            var adminOptions = this.props.admins.map(function(admin){
+                return (
+                    &lt;option 
+                        key={admin.UserId}
+                        value={admin.UserId}&gt;
+                            {admin.UserName}&lt;/option&gt;
+                );
+            });
+
+            var objectOptions = this.props.objects.map(function(object){
+                return (
+                    &lt;option 
+                        key={object.ObjectId}
+                        value={object.ObjectId}&gt;
+                            {object.ObjectName}&lt;/option&gt;
+                );
+            });
+
+            return (
+                &lt;div&gt;
+                    &lt;form className="inlineForm"
+                            onSubmit={this.handleAddRestrictionSubmit}&gt;
+                        &lt;div className="dynamic_list_new_box"&gt;
+                            &lt;select ref="admins"&gt;
+                                {adminOptions}
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+
+                        &lt;div className="dynamic_list_new_box"&gt;
+                            &lt;select ref="objects"&gt;
+                                {objectOptions}
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+
+                        &lt;div className="dynamic_list_new_box"&gt;
+                            &lt;button&gt;Save&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                    &lt;div className="dynamic_list_new_box"&gt;
+                        &lt;button
+                            onClick={this.handleAddButtonClick}&gt;
+                                Cancel&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            );
+        }
+        else {
+            return (
+                &lt;div&gt;
+                    &lt;button 
+                        onClick={this.handleAddButtonClick}&gt;
+                            Add&lt;/button&gt;
+                &lt;/div&gt;
+            );
+        }
+    }
+});
+
+var RestrictionApp = React.createClass({
+    loadListFromServer: function() {
+        $.ajax({
+            url: this.props.urlFetch,
+            dataType: 'json',
+            success: function(data) {
+                this.setState({
+                    restrictions: data.restrictions, 
+                    admins: data.admins, 
+                    objects: data.objects});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+    },
+
+    getInitialState: function() {
+        return {restrictions: [], admins: [], objects: []};
+    },
+
+    componentDidMount: function() {
+        this.loadListFromServer();
+    },
+
+    addRestriction: function(adminName, adminId, objectName, objectId){
+        var restrictions = this.state.restrictions;
+        var newRestrictions = restrictions.concat([{
+            UserName: adminName,
+            UserId: adminId, 
+            ObjectName: objectName, 
+            RestrictionId: ""}]);
+        this.setState({restrictions: newRestrictions});
+
+        $.ajax({
+            url: this.props.urlSave,
+            dataType: 'json',
+            type: 'POST',
+            data: {adminId: adminId, objectId: objectId},
+            success: function(data) {
+                this.setState({
+                    restrictions: data.restrictions, 
+                    admins: data.admins, 
+                    objects: data.objects});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+
+        return false;  //suppress POST
+    },
+
+    removeRestriction: function(restrictionId){
+        var restrictions = this.state.restrictions;
+
+        var deleteFilter = function(element){
+            return element.RestrictionId != restrictionId;
+        };
+
+        var newRestrictions = restrictions.filter(deleteFilter);
+
+        this.setState({restrictions: newRestrictions});
+
+        $.ajax({
+            url: this.props.urlDelete,
+            dataType: 'json',
+            type: 'POST',
+            data: {restrictionId: restrictionId},
+            success: function(data) {
+                this.setState({
+                    restrictions: data.restrictions, 
+                    admins: data.admins, 
+                    objects: data.objects});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+
+        return false;  //suppress POST
+    },
+
+    render: function(){
+        return (
+            &lt;div className="dynamic_list_container"&gt;
+                &lt;div className="dynamic_list_header"&gt;
+                    &lt;RestrictionAddForm 
+                        addRestriction={this.addRestriction}
+                        admins={this.state.admins} 
+                        objects={this.state.objects}/&gt;
+                &lt;/div&gt;
+                &lt;RestrictionList 
+                    removeRestriction={this.removeRestriction}
+                    restrictions={this.state.restrictions}/&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+React.renderComponent(
+    &lt;RestrictionApp 
+        urlFetch="GetStaffRestrictions"
+        urlSave="SaveStaffRestriction"
+        urlDelete="DeleteStaffRestriction" /&gt;,
+    document.getElementById('staffRestrictions')
+);
+
+React.renderComponent(
+    &lt;RestrictionApp 
+        urlFetch="GetCustomerRestrictions"
+        urlSave="SaveCustomerRestriction" 
+        urlDelete="DeleteCustomerRestriction" /&gt;,
+    document.getElementById('customerRestrictions')
+);
+</code></pre>
+        </article>
+    </section>
+
+    <section id="ex-4">
+        <h2 class="portfolio_section_title">SQL</h2>
+
+        <article>
+            <h3>
+                T-SQL Stored Procedure
+            </h3>
+            <p class="portfolio_article_description">
+
+            </p>
+
+<pre class="ui segment">SQL
+T-SQL Stored Procedure Example
+<code class="sql lang-sql">
+CREATE PROCEDURE [dbo].[usp_rptHIVRatesMaleByAgeYear]
+    @Period DATETIME2,
+    @PK varchar(10)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Location VARCHAR(10) = @PK
+    DECLARE @LocationName VARCHAR(50) = 'Unknown'
+    DECLARE @Year DATETIME2
+
+    SELECT @Year = DATEADD(yy, DATEDIFF(yy, 0, @Period), 0)
+
+    IF UPPER(@Location) IN ('WArea', 'SArea', 'NArea', 'EArea', 'PArea') 
+    BEGIN
+        SET @LocationName = UPPER(@Location)
+    END ELSE BEGIN
+        SELECT TOP 1 @LocationName = CampusName
+        FROM dbo.CampusLookup
+        WHERE CampusID = UPPER(@Location)
+    END
+
+    SELECT @LocationName AS LocationName,
+           CASE 
+               WHEN GROUPING(s.AgeCategory) = 1 THEN 'Total' 
+               ELSE s.AgeCategory 
+           END AS AgeCategory,
+           s.Period,
+           CASE 
+               WHEN SUM(a.AdjustedPersonTimeTotal) = 0 THEN 0.0 
+               ELSE SUM(s.HIVCount) / 
+                    SUM(a.AdjustedPersonTimeTotal) * 100000.0
+           END AS HIVRatePerThousandPersonYears,
+           SUM(s.HIVCount) AS HIVCount
+    FROM dbo.StiCount s
+    INNER JOIN dbo.CampusLookup i
+        ON s.PK = i.CampusID
+    INNER JOIN dbo.Demographics a
+        ON a.PK = s.PK
+        AND a.Period = s.Period
+        AND a.AgeCategory = s.AgeCategory
+        AND a.Gender = s.Gender
+    WHERE s.Period &gt; DATEADD(year, -7, @Year)
+        AND s.Period &lt;= @Year
+        AND (UPPER(s.PK) = UPPER(@Location)
+             OR UPPER(i.AreaName) = UPPER(@Location)
+             OR UPPER(@Location) = 'ALL')
+        AND s.Gender = 'Male'
+    GROUP BY GROUPING SETS((s.AgeCategory, s.Period), (s.Period))
+END
+</code></pre>
+        </article>
+
+        <article>
+            <h3>
+                T-SQL Statistical Query
+            </h3>
+            <p class="portfolio_article_description">
+                This query is a small example of the many large and
+                complex queries that have been asked of me.  Usually
+                an ORM framework produces very good queries, but this
+                query needed to be fine-tuned by hand through raw SQL
+                due to the immense data manipulation.
+            </p>
+            <p class="portfolio_article_description">
+                This query also demonstrates my aptitude in
+                statistics, using weighted statistics based off varying
+                sample sizes across strata.
+            </p>
+
+<pre class="ui segment">SQL
+T-SQL Stored Procedure Example
+<code class="sql lang-sql">
+ALTER PROCEDURE [dbo].[usp_rptViralRate]
+    @Location VARCHAR(20),
+    @PullDate VARCHAR(8),
+    @IsArea BIT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Get the statistical weights ready for use.
+    -- The weights depend on all our filters.
+    SELECT T.AssignmentDate
+          ,T.ParentPK
+          ,T.Phase
+          ,T.WithVirus
+          ,T.NoWithVirus
+          ,ISNULL(w.WithVirusEligible, 0) AS WithVirusEligible
+          ,ISNULL(w.NoWithVirusEligible, 0) AS NoWithVirusEligible
+          ,ISNULL(CASE WHEN T.WithVirus > 0 THEN 
+               CAST(w.WithVirusEligible AS DECIMAL(20,10)) / 
+               CAST(T.WithVirus AS DECIMAL(20,10)) ELSE 1.0 END, 
+               1.0) AS WithVirusWeight
+          ,ISNULL(CASE WHEN T.NoWithVirus > 0 THEN 
+               CAST(w.NoWithVirusEligible AS DECIMAL(20,10)) / 
+               CAST(T.NoWithVirus AS DECIMAL(20,10)) ELSE 1.0 END, 
+               1.0) AS NoWithVirusWeight
+          ,CASE T.Phase
+              WHEN 1 THEN CONVERT(DATETIME2, 
+                  T.AssignmentDate + '01', 112)
+              WHEN 2 THEN CONVERT(DATETIME2, 
+                  T.AssignmentDate + '08', 112)
+              WHEN 3 THEN CONVERT(DATETIME2, 
+                  T.AssignmentDate + '15', 112)
+              WHEN 4 THEN CONVERT(DATETIME2, 
+                  T.AssignmentDate + '22', 112)
+           END AS SamplePhaseBegin
+          ,CASE T.Phase
+               WHEN 1 THEN CONVERT(DATETIME2, 
+                   T.AssignmentDate + '08', 112)
+               WHEN 2 THEN CONVERT(DATETIME2, 
+                   T.AssignmentDate + '15', 112)
+               WHEN 3 THEN CONVERT(DATETIME2, 
+                   T.AssignmentDate + '22', 112)
+               WHEN 4 THEN DATEADD(MONTH, 1, 
+                   CONVERT(DATETIME2, T.AssignmentDate + '01', 112))
+           END AS SamplePhaseEnd
+    INTO #WeightsTable
+    FROM (
+        SELECT ap.AssignmentDate
+              ,A.ParentPK
+              ,CASE WHEN DAY(ap.VisitDate) &lt; 8 THEN 1
+                    WHEN DAY(ap.VisitDate) &lt; 15 THEN 2
+                    WHEN DAY(ap.VisitDate) &lt; 22 THEN 3
+                    ELSE 4 END AS Phase
+              ,SUM(A.HasWithVirus) AS WithVirus
+              ,SUM(CASE WHEN A.HasWithVirus = 0 
+                        THEN 1 ELSE 0 END) AS NoWithVirus
+        FROM (
+            SELECT ap.TreatmentPK
+                  ,ap.AssociatedLoadID
+                  ,dc.ParentPK
+                  ,MAX(CASE WHEN c.CodeType = 2 
+                            THEN 1 ELSE 0 END) AS HasWithVirus
+            FROM dbo.Coding c
+            INNER JOIN dbo.Person ap
+                    ON ap.TreatmentPK = c.TreatmentPK
+                    AND ap.AssociatedLoadID = c.AssociatedLoadID
+                    AND ap.AssignmentDate = @PullDate
+            INNER JOIN dbo.RecordsComplete rc
+                    ON rc.TreatmentPK = ap.TreatmentPK
+                    AND rc.AssociatedLoadID = ap.AssociatedLoadID
+            INNER JOIN dbo.Locations dc
+                    ON c.TreatmentPK = dc.ReportingPK
+                    AND ((dc.AreaName = @Location AND @IsArea = 1) 
+                        OR (dc.ParentPK = @Location AND @IsArea = 0))
+                WHERE ap.CauseOfDeath IS NULL
+                GROUP BY ap.TreatmentPK, 
+                         ap.AssociatedLoadID, 
+                         dc.ParentPK
+            ) A
+            INNER JOIN dbo.Person ap
+                ON ap.AssociatedLoadID = A.AssociatedLoadID
+                AND ap.TreatmentPK = A.TreatmentPK
+    GROUP BY ap.AssignmentDate, 
+             A.ParentPK, 
+             CASE 
+                 WHEN DAY(ap.VisitDate) &lt; 8 THEN 1
+                 WHEN DAY(ap.VisitDate) &lt; 15 THEN 2
+                 WHEN DAY(ap.VisitDate) &lt; 22 THEN 3
+                 ELSE 4 
+             END
+    ) T
+    LEFT OUTER JOIN dbo.StatisticWeights w
+    ON w.PK = T.ParentPK
+        AND w.PullDate = T.AssignmentDate
+        AND w.SamplePhase = T.Phase
+
+    ;WITH AreaStatistics AS (
+        SELECT ReportingFacilityName
+              ,ReportingPK
+              ,CASE WHEN HIVTotal > 0 
+                   THEN HIVCorrect * 1.0 / HIVTotal * 100.0 ELSE 0.0 
+               END AS HIVAccuracy
+              ,CASE WHEN WithVirusTotal > 0 
+                   THEN WithVirusCorrect * 1.0 / 
+                       WithVirusTotal * 100.0 ELSE 0.0 
+               END AS WithVirusAccuracy
+              ,CASE WHEN HIWTotal > 0 
+                   THEN HIWCorrect * 1.0 /
+                       HIWTotal * 100.0 ELSE 0.0 END AS HIWAccuracy
+              ,CAST(HIVCorrect AS INT) AS HIVCorrect
+              ,CAST(HIVTotal AS INT) AS HIVTotal
+              ,CAST(WithVirusCorrect AS INT) AS WithVirusCorrect
+              ,CAST(WithVirusTotal AS INT) AS WithVirusTotal
+              ,CAST(HIWCorrect AS INT) AS HIWCorrect
+              ,CAST(HIWTotal AS INT) AS HIWTotal
+            FROM (
+                SELECT ReportingFacilityName
+                      ,ReportingPK
+                      ,HIVCodeCorrect AS HIVCorrect
+                      ,(HIVCodeCorrect + HIVCodeError) AS HIVTotal
+                      ,WithVirusCodeCorrect AS WithVirusCorrect
+                      ,(WithVirusCodeCorrect + 
+                        WithVirusCodeError) AS WithVirusTotal
+                      ,HIWCodeCorrect AS HIWCorrect
+                      ,(HIWCodeCorrect + HIWCodeError) AS HIWTotal
+                FROM (
+                    -- ...
+                ) AreaCodesIndividual
+            ) AreaCodesCombined
+    )
+
+    SELECT ReportingFacilityName
+          ,ReportingPK
+          ,HIVAccuracy
+          ,HIWAccuracy
+          ,WithVirusAccuracy
+          ,HIVCorrect
+          ,HIVTotal
+          ,HIWCorrect
+          ,HIWTotal
+          ,WithVirusCorrect
+          ,WithVirusTotal
+    FROM AreaStatistics
+    ORDER BY ReportingPK
+END
+</code></pre>
+        </article>
+    </section>
+</template>

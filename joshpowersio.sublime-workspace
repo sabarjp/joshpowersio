@@ -1,0 +1,748 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"read",
+				"readAsDataURL (fn)"
+			],
+			[
+				"addSe",
+				"addSelfieError"
+			],
+			[
+				"customer-calc",
+				"customer-cancel-modify"
+			],
+			[
+				"addCus",
+				"addCustomerError"
+			],
+			[
+				"customer",
+				"customerAddForm (obj)"
+			],
+			[
+				"pass",
+				"passwordRecoveryChanged"
+			],
+			[
+				"passwordRec",
+				"passwordRecoveryChanged"
+			],
+			[
+				"passw",
+				"passwordRecoveryMessage"
+			],
+			[
+				"passwordRecovery",
+				"passwordRecoveryMessage"
+			],
+			[
+				"reset",
+				"resetPassword"
+			],
+			[
+				"password",
+				"passwordRecoveryEmailError"
+			],
+			[
+				"passwor",
+				"passwordRecoveryEmailError"
+			],
+			[
+				"isString",
+				"isStringNullOrEmpty (fn)"
+			],
+			[
+				"templat",
+				"template_name"
+			],
+			[
+				"PASSW",
+				"PASSWORD_RESET_TIMEOUT_DAYS"
+			],
+			[
+				"ut",
+				"utcnow	function"
+			],
+			[
+				"ema",
+				"email"
+			],
+			[
+				"is",
+				"is_valid"
+			],
+			[
+				"PAssword",
+				"PasswordResetForm	class"
+			],
+			[
+				"user",
+				"user_not_active"
+			],
+			[
+				"passwo",
+				"password_reset_token	statement"
+			],
+			[
+				"Password",
+				"PasswordResetToken	class"
+			],
+			[
+				"send",
+				"send_password_reset_email	function"
+			],
+			[
+				"clea",
+				"cleaned_data"
+			],
+			[
+				"app",
+				"app_folders_list	statement"
+			],
+			[
+				"list",
+				"listdir	import"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"migr",
+				"migration_folder	statement"
+			],
+			[
+				"mig",
+				"migration_folder	statement"
+			],
+			[
+				"generate",
+				"generate_password_reset_token	function"
+			],
+			[
+				"form",
+				"form_class	statement"
+			],
+			[
+				"clean",
+				"cleaned_email	statement"
+			],
+			[
+				"template",
+				"template_name	statement"
+			],
+			[
+				"Request",
+				"RequestPasswordResetForm	class"
+			],
+			[
+				"act",
+				"activation_id"
+			],
+			[
+				"acti",
+				"activation_url	statement"
+			],
+			[
+				"Http",
+				"HttpResponseNotFound	class"
+			],
+			[
+				"inde",
+				"db_index"
+			],
+			[
+				"ac",
+				"activation_id	statement"
+			],
+			[
+				"activation",
+				"activation_id"
+			],
+			[
+				"templa",
+				"template_name"
+			],
+			[
+				"set",
+				"set_password	function"
+			],
+			[
+				"NE",
+				"NeverCacheMixin	class"
+			],
+			[
+				"ra",
+				"raise_exception	statement"
+			],
+			[
+				"im",
+				"ImproperlyConfigured	class"
+			],
+			[
+				"ACT",
+				"ACTIVATION_SUBJECT	statement"
+			],
+			[
+				"ce",
+				"create_user	function"
+			],
+			[
+				"b",
+				"b2a_hex	function"
+			],
+			[
+				"sens",
+				"SensitivePostParametersMixin	class"
+			],
+			[
+				"class",
+				"classviewmixins	module"
+			],
+			[
+				"cs",
+				"csrf_protect	function"
+			],
+			[
+				"Ema",
+				"EmailField	class"
+			],
+			[
+				"em",
+				"e-mail"
+			],
+			[
+				"emai",
+				"email_unavailable"
+			],
+			[
+				"Inav",
+				"InaveryUser	class"
+			],
+			[
+				"Ina",
+				"InaveryUser	class"
+			],
+			[
+				"tem",
+				"template_name	statement"
+			],
+			[
+				"error",
+				"error_messages"
+			],
+			[
+				"red",
+				"redirect_url	statement"
+			],
+			[
+				"Inavery",
+				"InaveryUserAdmin	class"
+			],
+			[
+				"Passwo",
+				"PasswordInput	class"
+			],
+			[
+				"Pass",
+				"PasswordInput	class"
+			],
+			[
+				"USER",
+				"USERNAME_FIELD	statement"
+			],
+			[
+				"full",
+				"full_name	param"
+			],
+			[
+				"Per",
+				"PermissionsMixin	class"
+			],
+			[
+				"Inaver",
+				"InaveryUserManager	class"
+			],
+			[
+				"max",
+				"max_length"
+			],
+			[
+				"p",
+				"password	param"
+			],
+			[
+				"create",
+				"create_user	function"
+			],
+			[
+				"get",
+				"get_object_or_404	function"
+			],
+			[
+				"if",
+				"if	if"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "client/controllers/nav.js",
+			"settings":
+			{
+				"buffer_size": 172,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/styles/main.css",
+			"settings":
+			{
+				"buffer_size": 364,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/views/nav.html",
+			"settings":
+			{
+				"buffer_size": 1332,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 374.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 500.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Sabar/MeteorProjs/joshpowersio",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/layouts",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/styles",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections",
+		"/Users/Sabar/MeteorProjs/joshpowersio/lib",
+		"/Users/Sabar/MeteorProjs/joshpowersio/routes",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts"
+	],
+	"file_history":
+	[
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/styles/main.css",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/layouts/application.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/selfies.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfies.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/nav.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts/publications.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/routes/routes.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/customers.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/customers.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/selfies.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/home.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfieUpload.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/spinner.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/lib/methods.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/customers.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/collections.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/loading.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfie.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/login.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/password.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/signup.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/login.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/state.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/country.html",
+		"/Users/Sabar/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/logout.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/passwordRecovery.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/signup.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/nav.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/errors.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/errors.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/itemerrors.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/customerErrors.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/lib/validation.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/[path: /usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin]",
+		"/Users/Sabar/MeteorProjs/joshpowersio/lib/helpers/validation.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/lib/helpers/validation.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/main.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/scripts/home.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/packages/meteor-platform.js.map",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/web.browser/packages/meteor.js.map",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/web.browser/packages/meteor-platform.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/packages/meteor.js.map",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/packages/meteor-platform.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/web.browser/packages/meteor.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/packages/meteor.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/db/meteor.ns",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/db/meteor.1",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/db/meteor.0",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/db/METEOR-PORT",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/head.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/lib/constants.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/joshpowersio.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/test.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/scripts",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server/test.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/packages",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/db/local.0",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/npm/logging/node_modules/cli-color/node_modules/es5-ext/lib/Array/prototype/last-index.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/node_modules/fibers/build/Release/linker.lock",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/npm/logging/node_modules/cli-color/.lint",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/packages/insecure.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/npm/logging/node_modules/cli-color/node_modules/es5-ext/lib/Number/is-nan.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/npm/mongo/node_modules/mongodb/docs/insert.md",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/node_modules/chalk/node_modules/.bin/strip-ansi",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/node_modules/fibers/test/stack-overflow.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server/npm/webapp/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-large-read-stall.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/joshpowersio.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/joshpowersio.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/joshpowersio.css",
+		"/Users/Sabar/django/inavery/inavery/templates/base.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/password_reset.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/password_reset_expired.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/password_reset_request.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/password_reset_sent.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/password_reset_success.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/signup.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/verify_signup.html",
+		"/Users/Sabar/django/inavery/inavery/moodboard/templates/moodboard/index.html",
+		"/Users/Sabar/django/inavery/inavery/home/templates/home/index.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/activate.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/inactivate.html",
+		"/Users/Sabar/django/inavery/inavery/inavery/settings.py",
+		"/Users/Sabar/django/inavery/inavery/home/static/home/style.css",
+		"/Users/Sabar/django/inavery/inavery/static/home/style.css",
+		"/Users/Sabar/django/inavery/inavery/home/views.py",
+		"/Users/Sabar/django/inavery/inavery/home/models.py",
+		"/Users/Sabar/django/inavery/inavery/inavery/urls.py",
+		"/Users/Sabar/django/inavery/inavery/setup_mac.sh",
+		"/Users/Sabar/django/inavery/inavery/home/templates/index.html",
+		"/Users/Sabar/django/inavery/inavery/accounts/forms.py",
+		"/Users/Sabar/django/inavery/inavery/core/mail.py",
+		"/Users/Sabar/django/inavery/inavery/accounts/views.py",
+		"/Users/Sabar/django/inavery/inavery/accounts/admin.py",
+		"/Users/Sabar/django/inavery/inavery/accounts/urls.py",
+		"/Users/Sabar/django/inavery/inavery/remove_migrations.py",
+		"/Users/Sabar/django/inavery/inavery/accounts/migrations/0001_initial.py",
+		"/Users/Sabar/django/inavery/inavery/profiles/migrations/0001_initial.py",
+		"/Users/Sabar/django/inavery/inavery/accounts/models.py",
+		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/login.html",
+		"/Users/Sabar/django/inavery/inavery/profiles/models.py",
+		"/Users/Sabar/django/inavery/inavery/core/mixins/decorators.py",
+		"/Users/Sabar/django/inavery/inavery/profiles/admin.py",
+		"/Users/Sabar/django/inavery/inavery/inavery/__init__.py",
+		"/Users/Sabar/django/inavery/inavery/core/__init__.py",
+		"/Users/Sabar/django/inavery/inavery/core/admin.py",
+		"/Users/Sabar/django/inavery/inavery/core/models.py",
+		"/Users/Sabar/django/inavery/inavery/moodboard/views.py",
+		"/Users/Sabar/django/inavery/inavery/moodboard/urls.py",
+		"/Users/Sabar/django/inavery/inavery/inavery/templates/inavery/index.html",
+		"/Users/Sabar/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/Sabar/Desktop/django/mysite/polls/urls.py",
+		"/Users/Sabar/Desktop/django/mysite/polls/templates/polls/results.html",
+		"/Users/Sabar/Desktop/django/mysite/polls/views.py",
+		"/Users/Sabar/Desktop/django/mysite/polls/templates/polls/detail.html",
+		"/Users/Sabar/Desktop/django/mysite/polls/admin.py",
+		"/Users/Sabar/Desktop/django/mysite/polls/__init__.py",
+		"/Users/Sabar/Desktop/django/mysite/polls/models.py",
+		"/Users/Sabar/Library/Application Support/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/Users/Sabar/Desktop/personal website/JoshWebsite/scripts/index.js",
+		"/Users/Sabar/Desktop/personal website/JoshWebsite/content/style.css",
+		"/Users/Sabar/Desktop/personal website/JoshWebsite/index.htm",
+		"/Users/Sabar/Desktop/personal website/style.css",
+		"/Users/Sabar/Desktop/personal website/index.htm",
+		"/Users/Sabar/Desktop/laraveltest/laraveltest/app/routes.php",
+		"/Users/Sabar/Documents/workspace/403030calc/main.css",
+		"/Users/Sabar/Documents/workspace/403030calc/index.html",
+		"/Users/Sabar/Desktop/403030calc/main.css"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"customer",
+			">\n",
+			"loading",
+			".\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"selfie"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/Users/Sabar/MeteorProjs/joshpowersio"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "client/controllers/nav.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/styles/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								184,
+								184
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/views/nav.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								112,
+								118
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"is_xml": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 164.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 110.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 173.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,15 @@
+<template name="validationErrors">
+    {{#if errors collectionName}}
+        <div class="ui error message">
+            <i class="close icon" data-collection-name="{{collectionName}}"></i>
+            <div class="ui small header">
+                {{errorMessage}}
+            </div>
+            <ul class="list">
+                {{#each errors collectionName}}
+                    <li class="errors">{{message}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}}
+</template>

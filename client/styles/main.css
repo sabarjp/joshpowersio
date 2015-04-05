@@ -1,0 +1,43 @@
+/* CSS declarations go here */
+
+@media only screen and (max-width: 380px) {
+    .explanation-tiny-phone{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .explanation-phone{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .explanation-tablet{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: @computerBreakpoint) {
+    html.ios {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.launch.item{
+    cursor: pointer;
+}
+
+.header{
+    padding-top: 60px;
+}
+
+.main.container{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+#selfie-preview{
+    max-width: 50%;
+}

@@ -1,0 +1,173 @@
+{
+    "person": {
+        "firstName": "Joshua",
+        "lastName": "Powers",
+        "emailAddress": "jsh.a.powers@gmail.com",
+        "phoneNumber": "210-355-6730",
+        "address": {
+            "addressLine1": "",
+            "addressLine2": "",
+            "city": "San Antonio",
+            "state": "TX",
+            "zipcode": ""
+        },
+        "currentlyEmployed": true,
+        "website": "http://joshpowers.io"
+    },
+
+    "synopsis": {
+        "title": "Software engineer / Full stack web developer",
+        "objective": "Focused and ambitious programming specialist with a life-long background in computer hardware and software.  Significant success with engineering solutions to reduce IT costs. Extensive experience with full stack web development on multi-million dollar software products.  Skill concentrations in software security, UI/UX, MVC frameworks, and scripting. Deliver solutions that target both desktop and mobile environments."
+    },
+
+    "specializations": [
+        "Software security",
+        "MVC Architecture",
+        "C#, Java, HTML, CSS3",
+        "Python, JavaScript (ECMA Script)",
+        "Oracle, MSSQL programming",
+        "Tools programming",
+        "Web design and standards",
+        "LINQ expert",
+        "Technical writing",
+        "Full stack development",
+        "Query Optimization",
+        "Source Control (git, TFS)",
+        "Responsive design (mobile web)"
+    ],
+
+    "technicalKnowledge": {
+        "platforms": [
+            "Microsoft Windows (9x, NT, Server)", 
+            "Unix-like", 
+            "Linux (Ubuntu)", 
+            "Mac OSX", 
+            "Android", 
+            "Apple iOS",
+            "Cloud PaaS"
+        ],
+
+        "code": [
+            "C", 
+            "Objective-C", 
+            "C#", 
+            "Python", 
+            "Java SE", 
+            "Java EE", 
+            "BASH shell script",
+            "Windows Batch script", 
+            "Power Shell", 
+            "VBScript", 
+            "JavaScript", 
+            "Perl", 
+            "HTML", 
+            "CSS"
+        ],
+
+        "programs": [
+            "Microsoft Visual Studio", 
+            "Eclipse IDE", 
+            "Netbeans", 
+            "Oracle 9i, 10g, 11g",
+            "SQL Developer", 
+            "Microsoft Office", 
+            "Adobe Collections (Photoshop, Illustrator, Lightroom)", 
+            "SublimeText", 
+            "vim", 
+            "various command-line tools"
+        ]
+    },
+
+    "workExperience": [
+        {
+            "business": {
+                "name": "Genesis Business Systems / PASBA / US Army MEDCOM",
+                "location": "Fort Sam Houston, TX"
+            },
+
+            "positions": [
+                {
+                    "jobTitle": "Senior Software Engineer / Full stack web developer",
+                    "positionStart": "February 2012",
+                    "positionEnd": "present",
+                    "description": "Deliver software solutions for the United Stated Army Medical Command in the form of MVC web applications running under the .NET framework against a Sql Server database.  Perform requirements gathering, expert analysis, back-end development (to include database schema), front-end development and testing. Work as part of a small development team (~12 persons) using agile methodology to deliver products with multi-million dollar impacts.  Extensive use of cutting edge technology (HTML5, CSS3, MVC), legacy technology (Sql Server 2008), and a mixture of open and closed source libraries. Full responsibility to architect new applications as a senior software engineer and prevent feature creep. Always deliver products within the time estimate.",
+                    "highlights": [
+                        "Took initiative to volunteer to complete another project that was overdue. Delivered product promptly and with more features and far better security. This proprietary product is used by Army hospitals to decide millions of dollars in funding depending on the accuracy of medical coding. Extensive work with HIPAA/Privacy Act protected information. Used manual binding of database to models through stored procedures for maximum performance.",
+                        "Re-engineered (and still maintain) the signature product of PASBA. This complex web application allows military medicine leaders from all over the globe to perform epidemiological and administrative statistical analysis on things such as patient load, bed days, infection rates, telephone consults, and more.  This web application generates reports through SSRS and allows intuitive “cube” navigation of these reports through various facilities and commands. Engineered the backend to include over 100 stored procedures and 60 SSRS reports; over 12 helper classes, 25 models, 20 view-models; at least 9 controllers, 10 views, and dozens of business layer methods using entity framework and LINQ queries.",
+                        "Created a class, lecture, and notes on how to use Team Foundation Server, then trained the entire development section in order to migrate off Visual Source Safe.",
+                        "Provide expert assistance in fields as diverse as databases, programming, requirements gathering, quality assurance, test-driven development, source control, and statistics."
+                    ]
+                }
+            ]
+        },
+
+        {
+            "business": {
+                "name": "Federal Resources Corporation / Team ASM / US Air Force",
+                "location": "Lackland AFB, TX"
+            },
+
+            "positions": [
+                {
+                    "jobTitle": "Tools Programmer / Oracle RDBMS Programmer",
+                    "positionStart": "October 2010",
+                    "positionEnd": "January 2012",
+                    "description": "Sustained a dozen Oracle 10g/11g databases and Microsoft IIS servers in support of the CHAS medical database for the US Air Force.  Significant amount of work experience in Windows Server 2003/2008 and Oracle 10g/11g. Performed IA security audits and tracked all security compliance.  Took charge with programming solutions (client side web app) to make remote administration of servers more automated and efficient.  Spent significant time working with developers in testing and debugging database-side business logic in Oracle, SQL, and PL/SQL stored procedures.",
+                    "highlights": [
+                        "Volunteered to develop tools that automate tasks of server administration for over 200 deployed servers for military medicine. These tools allow a small team of six to perform remote server administration to around 220 servers located around the world. The tools are HTML/CSS/VBScript client-side applications.  VBScript was used instead of JavaScript due to its ability to use .NET libraries and host resources.",
+                        "Took initiative to create a program that pro-actively scans deployed production servers for problems and reports results back to the team in a visual format. Servers are visually indicated on a global map (HTML/CSS) and problems indicated quickly. ",
+                        "Voluntarily took on additional taskings, such as creating in-house tools to enter security audits and taking over other tasks related to information security and assurance."
+                    ]
+                }
+            ]
+        },
+
+        {
+            "business": {
+                "name": "Federal Resources Corporation",
+                "location": "Fort Sam Houston, TX"
+            },
+
+            "positions": [
+                {
+                    "jobTitle": "Network Security Technician",
+                    "positionStart": "2010",
+                    "positionEnd": "2010",
+                    "description": "Maintained medical networks in support of the US Army Medical mission as part of a dedicated team.  Handled network security, VPNs, PPS, Cisco routers and Foundry switches in the Medical Network Operations Security Center (MEDNOSC).  Responsible for creating ACL entries in network devices to allow access.",
+                    "highlights": []
+                }
+            ]
+        },
+
+        {
+            "business": {
+                "name": "University of Texas at San Antonio",
+                "location": "San Antonio, TX"
+            },
+
+            "positions": [
+                {
+                    "jobTitle": "Undergraduate Research Assistant",
+                    "positionStart": "2009",
+                    "positionEnd": "2009",
+                    "description": "Hard disk drives were benchmarked using DiskSim software to simulate thousands of test trials on any type of hard disk drive. The mechanical nature of magnetic hard disks makes the disk seeking algorithm important, with a possibility to improve upon current technology. DiskSim source code was modified and recompiled in order to achieve specific solutions. Simulations were carried out on Linux and Windows systems and programming was done in C and Perl in order to interface to the simulator. Programming solutions included handling graph coloring, the traveling salesman problem, disk scheduling, and creating artificial disk traces.",
+                    "highlights": []
+                }
+            ]
+        }
+    ],
+
+    "education": [
+        {
+            "institution": "University of Texas at San Antonio (2005 - 2009)",
+            "certification": "Bachelor's Degree - Computer Science, Computer Security",
+            "gradePointAverage": 3.6
+        },
+        
+        {
+            "institution": "CompTIA",
+            "certification": "Security+",
+            "gradePointAverage": null
+        }
+    ]
+}

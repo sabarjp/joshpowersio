@@ -1,0 +1,29 @@
+<template name="signup">
+    <h1>Sign up</h1>
+
+    <form class="ui form attached fluid segment" id="register-form" action="action">
+        {{#if registerEmailError}}
+            <div class="ui negative message">
+                {{registerEmailError}}
+            </div>
+        {{/if}}
+
+        <div class="field">
+            <label for="account-email">E-mail</label>
+            <input type="email" id="account-email" />
+        </div>
+        <div class="field">
+            <label for="account-password">Password</label>
+            <input type="password" id="account-password" />
+
+            {{#if registerPasswordError}}
+                <div class="ui pointing red label">
+                    {{registerPasswordError}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="field">
+            <input type="submit" id="create-acount" class="ui button" value="Create an account" />
+        </div>
+    </form>
+</template>

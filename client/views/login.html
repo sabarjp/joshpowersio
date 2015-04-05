@@ -1,0 +1,49 @@
+<template name="login">
+    <h1>Login</h1>
+
+    {{#if loginError}}
+        <div class="ui error attached message">
+            <div class="header">
+                There was a small problem.
+            </div>
+            <ul class="list">
+                <li class="errors">{{loginError}}</li>
+            </ul>
+        </div>
+    {{/if}}
+
+    <form class="ui form attached fluid segment" id="login-form" action="action">
+        <div class="field">
+            <label for="login-email">E-mail</label>
+            <input type="email" id="login-email" />
+        </div>
+
+        <div class="field">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" />
+        </div>
+
+        <div class="field">
+            <input type="submit" id="login-button" class="ui button" value="Sign in" />
+
+            <a href="{{pathFor route='signup'}}">Need an account?</a>
+        </div>
+
+        <div class="field">
+            <a href="{{pathFor route='password'}}">I forgot my password!</a>
+        </div>
+    </form>
+</template>
+
+<template name="logout">
+    {{#if isInRole 'admin'}}
+        <span class="item">
+            Hi, {{currentUserName}}!
+        </span>
+    {{/if}}
+
+    <a class="item popup" id="logout" data-content="Logout">
+        <i class="shutdown icon"></i><span class="explanation-tiny-phone"> Logout</span>
+    </a>
+</template>
+

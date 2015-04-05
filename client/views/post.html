@@ -1,0 +1,129 @@
+<template name="post">
+    <article class="ui segment">
+        <h2 class="ui left floated header">
+            <a href="{{pathFor route='blog'}}">{{title}}</a>
+        </h2>
+
+        <h5 class="ui right floated header">
+            Posted on {{formattedDate createdAt}}
+        </h5>
+
+        <div class="ui clearing divider"></div>
+
+        <p class="content">
+            {{#markdown}}{{content}}{{/markdown}}
+        </p>
+
+        {{#if currentUser}}
+            <div>
+                <a href="{{pathFor route='editPost'}}" id="edit-post" class="ui icon blue button">
+                    <i class="wrench icon"></i>
+                </a>
+                <a href="{{pathFor route='removePost'}}" id="remove-post" class="ui icon red button">
+                    <i class="remove icon"></i>
+                </a>
+            </div>
+        {{/if}}
+
+        <div class="ui bottom right attached label">
+            {{tags}}
+        </div>
+    </article>
+</template>
+
+<template name="newPost">
+    <h1>New blog post</h1>
+
+    {{> validationErrors collectionName="posts" errorMessage="There was a problem creating the new blog post."}}
+
+    <form class="ui form" id="post-add-form" action="action">
+        <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Title"/>
+        </div>
+
+        <div class="field">
+            <label for="title">Slug</label>
+            <input type="text" id="slug" name="slug" placeholder="Slug"/>
+        </div>
+
+        <div class="field">
+            <label for="title">Tags</label>
+            <input type="text" id="tags" name="tags" placeholder="Tags"/>
+        </div>
+
+        <div class="field">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" placeholder="Write something!"></textarea>
+        </div>
+
+        <div class="field">
+            <input type="submit" id="submit-button" class="ui primary button" value="Add" />
+        </div>
+    </form>
+</template>
+
+<template name="editPost">
+    <h1>Edit blog post</h1>
+
+    {{> validationErrors collectionName="posts" errorMessage="There was a problem changing the blog post."}}
+
+    <form class="ui form" id="post-edit-form" action="action">
+        <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Title" value="{{title}}"/>
+        </div>
+
+        <div class="field">
+            <label for="title">Slug</label>
+            <input type="text" id="slug" name="slug" placeholder="Slug" value="{{slug}}"/>
+        </div>
+
+        <div class="field">
+            <label for="title">Tags</label>
+            <input type="text" id="tags" name="tags" placeholder="Tags" value="{{tags}}"/>
+        </div>
+
+        <div class="field">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" placeholder="Write something!" value="{{content}}"></textarea>
+        </div>
+
+        <div class="field">
+            <input type="submit" id="submit-button" class="ui primary button" value="Edit" />
+        </div>
+    </form>
+</template>
+
+<template name="removePost">
+    <h1>Remove blog post</h1>
+    <p>Are you sure you want to remove the following post? This cannot be undone!</p>
+
+    {{> validationErrors collectionName="posts" errorMessage="There was a problem deleting the blog post."}}
+
+    <form class="ui form" id="post-remove-form" action="action">
+        <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Title" value="{{title}}" disabled/>
+        </div>
+
+        <div class="field">
+            <label for="title">Slug</label>
+            <input type="text" id="slug" name="slug" placeholder="Slug" value="{{slug}}" disabled/>
+        </div>
+
+        <div class="field">
+            <label for="title">Tags</label>
+            <input type="text" id="tags" name="tags" placeholder="Tags" value="{{tags}}" disabled/>
+        </div>
+
+        <div class="field">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" placeholder="Write something!" value="{{content}}" disabled></textarea>
+        </div>
+
+        <div class="field">
+            <input type="submit" id="submit-button" class="ui red button" value="Delete" />
+        </div>
+    </form>
+</template>
