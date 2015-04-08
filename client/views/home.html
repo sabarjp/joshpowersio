@@ -1,7 +1,20 @@
 <template name="home">
-    <h1>Josh Powers</h1>
+    <div class="ui page grid">
+        <div class="two column centered row">
+            <div class="column center aligned">
+                <h1 class="ui header">Josh Powers</h1>
+            </div>
+        </div>
 
-    <p>{{randomQuote}}</p>
+        <div class="three column centered row">
+            <div class="column center aligned">
+                <p>{{randomQuote}}</p>
+            </div>
+            <div class="column center aligned">
+                <p>{{hack}}</p>
+            </div>
+        </div>
 
-    {{> blogPosts}}
+        {{> blogPosts}}
+    </div>   
 </template>

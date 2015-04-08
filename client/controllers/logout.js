@@ -4,6 +4,9 @@ Template.logout.events({
 
         Meteor.logout();
 
+        // redirect to main page
+        Router.go('/');
+
         return false;
     }
 });
