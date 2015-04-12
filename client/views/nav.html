@@ -1,35 +1,32 @@
 <template name="nav">
   <div class="ui inverted fixed main menu">
     <div class="container">
-        {{#if isInRole 'admin'}}
-            <a class="launch item" id="menu">
-                <i class="bars icon"></i> Menu
-            </a>
-        {{else}}
-            <a class="item popup" href="{{pathFor route='default'}}" data-content="Home">
-                <i class="home icon"></i><span class="explanation-tablet"> Home</span>
-            </a>
+        <a class="launch item" id="menu-button">
+            <i class="bars icon"></i> Menu
+        </a>
 
-            <a class="item popup" href="https://github.com/sabarjp" data-content="View my code repositories">
-                <i class="github icon"></i><span class="explanation-tablet"> GitHub</span>
-            </a>
+        <a class="item popup vanishing" href="{{pathFor route='default'}}" data-content="Home">
+            <i class="home icon"></i><span class="explanation-tablet"> Home</span>
+        </a>
+        <a class="item popup vanishing" href="{{pathFor route='portfolio'}}" data-content="My coding portfolio">
+            <i class="suitcase icon"></i><span class="explanation-phone"> Portfolio</span>
+        </a>
 
-            <a class="item popup" href="https://www.flickr.com/photos/16474390@N07/sets" data-content="View my photography">
-                <i class="flickr icon"></i><span class="explanation-tablet"> Flickr</span>
-            </a>
+        <a class="item popup vanishing" href="{{pathFor route='resume'}}" data-content="My resume">
+            <i class="file text icon"></i><span class="explanation-phone"> Resume</span>
+        </a>
 
-            <a class="item popup" href="{{pathFor route='portfolio'}}" data-content="My coding portfolio">
-                <i class="suitcase icon"></i><span class="explanation-phone"> Portfolio</span>
-            </a>
+        <a class="item popup vanishing" href="{{pathFor route='fun'}}" data-content="Fun coding side projects">
+            <i class="fork icon"></i><span class="explanation-phone"> Fun</span>
+        </a>
 
-            <a class="item popup" href="{{pathFor route='resume'}}" data-content="My resume">
-                <i class="file text icon"></i><span class="explanation-phone"> Resume</span>
-            </a>
+        <a class="item purple popup vanishing" href="https://github.com/sabarjp" data-content="View my code repositories">
+            <i class="github icon"></i><span class="explanation-tablet"> GitHub</span>
+        </a>
 
-            <a class="item popup" href="{{pathFor route='fun'}}" data-content="Fun coding side projects">
-                <i class="fork icon"></i><span class="explanation-phone"> Fun</span>
-            </a>
-        {{/if}}
+        <a class="item pink popup vanishing" href="https://www.flickr.com/photos/16474390@N07/sets" data-content="View my photography">
+            <i class="flickr icon"></i><span class="explanation-tablet"> Flickr</span>
+        </a>
 
         {{#if currentUser}}
             <div class="right menu">
@@ -52,14 +49,6 @@
             </a>
         {{/if}}
 
-        <a class="item" href="https://github.com/sabarjp">
-            <i class="github icon"></i> GitHub
-        </a>
-
-        <a class="item" href="https://www.flickr.com/photos/16474390@N07/sets">
-            <i class="flickr icon"></i> Flickr
-        </a>
-
         <a class="item" href="{{pathFor route='portfolio'}}">
             <i class="suitcase icon"></i> Portfolio
         </a>
@@ -70,6 +59,14 @@
 
         <a class="item" href="{{pathFor route='fun'}}">
             <i class="fork icon"></i> Fun
+        </a>
+
+        <a class="item purple" href="https://github.com/sabarjp">
+            <i class="github icon"></i> GitHub
+        </a>
+
+        <a class="item pink" href="https://www.flickr.com/photos/16474390@N07/sets">
+            <i class="flickr icon"></i> Flickr
         </a>
     </div>
 </template>

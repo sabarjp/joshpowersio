@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"on",
+				"onRendered (obj)"
+			],
+			[
+				"validate",
+				"validateNewUser (fn)"
+			],
+			[
 				"read",
 				"readAsDataURL (fn)"
 			],
@@ -292,26 +300,34 @@
 	"buffers":
 	[
 		{
-			"file": "client/controllers/nav.js",
+			"file": "client/views/page.html",
 			"settings":
 			{
-				"buffer_size": 172,
+				"buffer_size": 884,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "client/styles/main.css",
+			"file": "client/views/home.html",
 			"settings":
 			{
-				"buffer_size": 364,
+				"buffer_size": 557,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "client/views/nav.html",
+			"file": "client/views/post.html",
 			"settings":
 			{
-				"buffer_size": 1332,
+				"buffer_size": 4440,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/controllers/home.js",
+			"settings":
+			{
+				"buffer_size": 672,
 				"line_ending": "Unix"
 			}
 		}
@@ -377,54 +393,71 @@
 	"expanded_folders":
 	[
 		"/Users/Sabar/MeteorProjs/joshpowersio",
-		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local",
-		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build",
-		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs",
-		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/programs/server",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/layouts",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/styles",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/lib",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views",
-		"/Users/Sabar/MeteorProjs/joshpowersio/collections",
-		"/Users/Sabar/MeteorProjs/joshpowersio/lib",
-		"/Users/Sabar/MeteorProjs/joshpowersio/routes",
-		"/Users/Sabar/MeteorProjs/joshpowersio/server",
-		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts"
+		"/Users/Sabar/MeteorProjs/joshpowersio/private"
 	],
 	"file_history":
 	[
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/styles/main.css",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/layouts/application.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/selfies.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfies.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/nav.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts/publications.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/routes/routes.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/customers.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/customers.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/collections/selfies.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/logout.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/scripts/title.js",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/home.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfieUpload.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/spinner.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/lib/methods.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/collections/customers.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/routes/routes.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/page.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/brownianMotion.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/resume.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/nav.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/blogPosts.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/home.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/page.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/post.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/fun.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/users.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/nav.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/signup.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts/accounts.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts/startup.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/signup.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/styles/main.css",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/login.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/collections/collections.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/posts.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/styles/resume.css",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/resume.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/portfolio.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/public/resumefiles/resume.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/public/resume/resume.json",
+		"/Users/Sabar/MeteorProjs/joshpowersio/lib/methods.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/server/scripts/publications.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/selfies.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/collections/customers.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/selfies.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/customers.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/blog.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/post.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/errors.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/scripts/twitter.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/scripts/table.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/scripts/prettify.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/scripts/showdown.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfies.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfieUpload.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/layouts/application.html",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/local/build/main.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/.meteor/.id",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/customers.js",
+		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/spinner.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/loading.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/selfie.js",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/login.js",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/password.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/signup.html",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/login.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/state.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/country.html",
 		"/Users/Sabar/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/logout.js",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/passwordRecovery.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/signup.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/nav.js",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/errors.js",
-		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/errors.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/views/itemerrors.html",
 		"/Users/Sabar/MeteorProjs/joshpowersio/client/controllers/customerErrors.js",
 		"/Users/Sabar/MeteorProjs/joshpowersio/lib/validation.js",
@@ -495,33 +528,7 @@
 		"/Users/Sabar/django/inavery/inavery/accounts/models.py",
 		"/Users/Sabar/django/inavery/inavery/accounts/templates/accounts/login.html",
 		"/Users/Sabar/django/inavery/inavery/profiles/models.py",
-		"/Users/Sabar/django/inavery/inavery/core/mixins/decorators.py",
-		"/Users/Sabar/django/inavery/inavery/profiles/admin.py",
-		"/Users/Sabar/django/inavery/inavery/inavery/__init__.py",
-		"/Users/Sabar/django/inavery/inavery/core/__init__.py",
-		"/Users/Sabar/django/inavery/inavery/core/admin.py",
-		"/Users/Sabar/django/inavery/inavery/core/models.py",
-		"/Users/Sabar/django/inavery/inavery/moodboard/views.py",
-		"/Users/Sabar/django/inavery/inavery/moodboard/urls.py",
-		"/Users/Sabar/django/inavery/inavery/inavery/templates/inavery/index.html",
-		"/Users/Sabar/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/Sabar/Desktop/django/mysite/polls/urls.py",
-		"/Users/Sabar/Desktop/django/mysite/polls/templates/polls/results.html",
-		"/Users/Sabar/Desktop/django/mysite/polls/views.py",
-		"/Users/Sabar/Desktop/django/mysite/polls/templates/polls/detail.html",
-		"/Users/Sabar/Desktop/django/mysite/polls/admin.py",
-		"/Users/Sabar/Desktop/django/mysite/polls/__init__.py",
-		"/Users/Sabar/Desktop/django/mysite/polls/models.py",
-		"/Users/Sabar/Library/Application Support/Sublime Text 3/Packages/User/Plain text.sublime-settings",
-		"/Users/Sabar/Desktop/personal website/JoshWebsite/scripts/index.js",
-		"/Users/Sabar/Desktop/personal website/JoshWebsite/content/style.css",
-		"/Users/Sabar/Desktop/personal website/JoshWebsite/index.htm",
-		"/Users/Sabar/Desktop/personal website/style.css",
-		"/Users/Sabar/Desktop/personal website/index.htm",
-		"/Users/Sabar/Desktop/laraveltest/laraveltest/app/routes.php",
-		"/Users/Sabar/Documents/workspace/403030calc/main.css",
-		"/Users/Sabar/Documents/workspace/403030calc/index.html",
-		"/Users/Sabar/Desktop/403030calc/main.css"
+		"/Users/Sabar/django/inavery/inavery/core/mixins/decorators.py"
 	],
 	"find":
 	{
@@ -539,6 +546,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"black",
 			"customer",
 			">\n",
 			"loading",
@@ -568,81 +576,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "client/controllers/nav.js",
+					"file": "client/views/page.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 172,
+						"buffer_size": 884,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								154,
-								154
-							]
-						],
-						"settings":
-						{
-							"auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "client/styles/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 364,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								184,
-								184
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "client/views/nav.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1332,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								112,
-								118
+								187,
+								187
 							]
 						],
 						"settings":
@@ -654,10 +605,101 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 164.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/views/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								465,
+								465
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"is_xml": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/views/post.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46,
+								51
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"is_xml": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/controllers/home.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 672,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								661,
+								661
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

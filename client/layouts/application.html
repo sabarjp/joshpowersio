@@ -9,15 +9,17 @@
         {{> nav}}
         {{> spinner}}
     
-        <div class="pusher">
+        <div class="pusher gradient-main">
             <div class="header"></div>
 
             <div class="main container">
                 {{> yield }}
             </div>
 
-            <footer>
-                {{> yield "footer"}}
+            <footer class="ui inverted header right aligned">
+                <p class="padded footer">
+                    Joshua Powers - 2015
+                </p>
             </footer>
         </div>
     </body>

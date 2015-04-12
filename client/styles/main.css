@@ -1,18 +1,26 @@
 /* CSS declarations go here */
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 600px) {
     .explanation-tiny-phone{
         display: none;
     }
+
+    .main.menu .vanishing{
+        display: none !important;
+    }
+
+    #menu-button{
+        display: inline-block !important;
+    }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 700px) {
     .explanation-phone{
         display: none;
     }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 880px) {
     .explanation-tablet{
         display: none;
     }
@@ -23,6 +31,10 @@
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
     }
+}
+
+#menu-button{
+    display: none;
 }
 
 .launch.item{
@@ -38,6 +50,44 @@
     margin-right: 12px;
 }
 
-#selfie-preview{
-    max-width: 50%;
+div.pusher{
+    background-color: red;
+}
+
+.gradient-main{
+    background: linear-gradient(135deg, 
+        rgb(125, 178, 203) 0%,
+        rgb(204, 54, 54) 100%)
+    !important;
+}
+
+.inverted.text{
+    color: #FFF !important;
+}
+
+.blue2.button{
+    background-color: #5E62B3;
+    color: #FFF;
+    text-shadow: none;
+    background-image: none;
+}
+
+.inverted.menu .item.purple:hover{
+    background-color: rgb(60, 35, 104) !important;
+}
+
+.inverted.menu .item.pink:hover{
+    background-color: rgb(104, 36, 107) !important;
+}
+
+a{
+    color: #dd0000;
+}
+
+.padded.footer{
+    padding: 12px;
+}
+
+.portfolio article{
+    margin-bottom: 15px;
 }

@@ -1,0 +1,39 @@
+<template name="blogPage">
+    <div class="ui page grid">
+        <div class="two column centered row">
+            <div class="column center aligned">
+                <h1 class="ui inverted header">Blog</h1>
+            </div>
+        </div>
+
+        {{> blogPosts}}
+    </div>
+</template>
+
+<template name="blogPosts">
+    <section id="blog-posts" class="sixteen wide column">
+        {{#if currentUser}}
+            <div>
+                <a href="{{pathFor route='newPost'}}" class="ui inverted black button"><i class="add icon"></i> New post</a>
+            </div>
+        {{/if}}
+
+        {{#each posts}}
+            {{> post}}
+        {{/each}}
+
+        <div>
+            <p class="inverted text">
+                {{postCount}} total posts - Page {{pageNumber}} of {{pageCount}}
+            </p>
+
+            {{#if lessPagesAvailable}}
+                 <a class="ui inverted black button" href="{{pathFor route='blogPage' pageNumber=previousPageNumber}}">View newer posts</a>
+            {{/if}}
+
+            {{#if morePagesAvailable}}
+                 <a class="ui inverted black button" href="{{pathFor route='blogPage' pageNumber=nextPageNumber}}">View older posts</a>
+            {{/if}}            
+        </div>
+    </section>
+</template>

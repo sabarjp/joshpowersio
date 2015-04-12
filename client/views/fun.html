@@ -1,36 +1,54 @@
 <template name="fun">
-    <h1>Fun coding projects</h1>
-    <p>Quick and small projects that I do just for fun</p>
+    <div class="ui page grid">
+        <div class="sixteen wide column">
+            <h1 class="ui inverted header">Fun coding projects</h1>
+        </div>
 
-    <a class="ui button" href="{{pathFor route='brownianMotion'}}"><i class="line chart icon"></i> Random walk and brownian motion sim</a>
+        <div class="sixteen wide column">
+            <p class="inverted text">Quick and small projects that I do just for fun</p>
+        </div>
+
+        <div class="sixteen wide column">
+            <a class="ui inverted black button" href="{{pathFor route='brownianMotion'}}"><i class="line chart icon"></i> Random walk and brownian motion sim</a>
+        </div>
+    </div>
 </template>
 
 <template name="brownianMotion">
-    <h1>Random walk and brownian motion</h1>
-    <p>A little demonstration on how a random walk, as it becomes more granular, starts to exhibit brownian motion. It looks quite like a stock chart!</p>
-    <p>Written in HTML5 Canvas and JavaScript. Check out the source code at GitHub!</p>
-
-    <div class="ui form">
-        <div class="field">
-            <button id="new-chart" class="ui button blue">Generate new chart</button>
+    <div class="ui page grid">
+        <div class="sixteen wide column">
+            <h1 class="ui inverted header">Random walk and brownian motion</h1>
         </div>
 
-        <div class="field">
-            <label for="granularity">Granularity of data points: </label>
-            <select id="granularity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="4">4</option>
-                <option value="8">8</option>
-                <option value="16">16</option>
-                <option value="32">32</option>
-                <option value="64" selected>64</option>
-                <option value="128">128</option>
-            </select>
+        <div class="sixteen wide column">
+            <p class="inverted text">A little demonstration on how a random walk, as it becomes more granular, starts to exhibit brownian motion. It looks quite like a stock chart!</p>
+            <p class="inverted text">Written in HTML5 Canvas and JavaScript. Check out the source code at GitHub!</p>
         </div>
 
-        <div class="field">
-            <canvas id="chart" width="550" height="250"></canvas>
+        <div class="sixteen wide column">
+            <div class="ui inverted form">
+                <div class="field">
+                    <button id="new-chart" class="ui button inverted black">Generate new chart</button>
+                </div>
+
+                <div class="field">
+                    <label for="granularity">Granularity of data points: </label>
+                    <select id="granularity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                        <option value="64" selected>64</option>
+                        <option value="128">128</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <canvas id="chart" width="550" height="250"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </template>

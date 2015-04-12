@@ -23,6 +23,20 @@ Template.newPost.events({
         });
 
         return false;
+    },
+
+    'input #title': function(event, template){
+        var text = event.target.value;
+        var reSpaces = /[\s_]+/gi;
+        var reInvalid = /[^ \-_0-9a-zA-Z\-]/gi;
+
+        var currentDate = moment().format('MMMM-YYYY').toLowerCase();
+
+        var text = text + ' ' + currentDate;
+
+        var slugLine = text.replace(reInvalid, '').replace(reSpaces, '-');
+
+        template.$('#slug').val(slugLine);
     }
 });
 

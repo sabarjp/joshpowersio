@@ -1,5 +1,5 @@
 Template.nav.events({
-    'click #menu': function(){
+    'click #menu-button': function(){
         $('#sidebar')
             .sidebar('toggle')
             .sidebar('attach events', '#sidebar .item');

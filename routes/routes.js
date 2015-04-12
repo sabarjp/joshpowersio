@@ -62,9 +62,9 @@ Router.route('/blog/post/:slug', function(){
 Router.route('/blog/page/:pageNumber', function(){
     this.wait(Meteor.subscribe("posts"));
 
-    this.render('page');
+    this.render('blogPage');
 }, {
-    name: 'page',
+    name: 'blogPage',
 
     data: function(){
         return {
